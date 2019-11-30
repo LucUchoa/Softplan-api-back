@@ -35,7 +35,7 @@ public class PessoaController {
 	}
 
 	@PostMapping("pessoa")
-	public String setPessoa(Pessoa pessoa) {
+	public String setPessoa(@Valid Pessoa pessoa) {
 		return manager.salvarPessoa(pessoa);
 	}
 	
