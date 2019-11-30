@@ -18,7 +18,7 @@ import br.com.softplan.cadastro.manager.PessoaManager;
 import br.com.softplan.cadastro.model.Pessoa;
 
 @RestController
-@RequestMapping("/api-cadastro/")
+@RequestMapping("api-cadastro/")
 public class PessoaController {
 
 	@Autowired
