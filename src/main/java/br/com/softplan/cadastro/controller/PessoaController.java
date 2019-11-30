@@ -40,12 +40,12 @@ public class PessoaController {
 	}
 	
 	@PutMapping("pessoa")
-	public String editPessoa(@Valid Pessoa pessoa ) {
+	public String editPessoa(@Valid Pessoa pessoa) {
 		return manager.atualizarPessoa(pessoa);
 	}
 	
-	@DeleteMapping
-	public String deletePessoa(Pessoa pessoa) {
-		return manager.deletarPessoa(pessoa);
+	@DeleteMapping("pessoa/{id}")
+	public String deletePessoa(@PathVariable(value = "id") Long id) {
+		return manager.deletarPessoa(id);
 	}
 }

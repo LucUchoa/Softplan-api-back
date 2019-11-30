@@ -29,8 +29,8 @@ public class PessoaManager {
 		return "Sucesso";
 	}
 
-	public String deletarPessoa(Pessoa pessoa) {
-		repository.delete(pessoa);
+	public String deletarPessoa(Long id) {
+		repository.deleteById(id);
 		return "Pessoa deletada com sucesso";
 	}
 	
