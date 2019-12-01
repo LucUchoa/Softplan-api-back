@@ -14,38 +14,38 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.softplan.cadastro.manager.PessoaManager;
-import br.com.softplan.cadastro.model.Pessoa;
+import br.com.softplan.cadastro.manager.PessoaV2Manager;
+import br.com.softplan.cadastro.model.PessoaV2;
 
 @RestController
-@RequestMapping("v1/api-cadastro/")
-public class PessoaController {
+@RequestMapping("v2/api-cadastro/")
+public class PessoaV2Controller {
 
 	@Autowired
-	private PessoaManager manager;
+	private PessoaV2Manager manager;
 	
 	@GetMapping("pessoa/{id}")
-	public Optional<Pessoa> getPessoa(@PathVariable(value = "id") Long id) {
+	public Optional<PessoaV2> getPessoaV2(@PathVariable(value = "id") Long id) {
 		return manager.buscarPessoa(id);
 	}
 
 	@GetMapping("pessoas")
-	public List<Pessoa> getTodasPessoas() {
+	public List<PessoaV2> getTodasPessoasV2() {
 		return manager.buscarTodasPessoas();
 	}
 
 	@PostMapping("pessoa")
-	public String setPessoa(@Valid Pessoa pessoa) {
+	public String setPessoaV2(@Valid PessoaV2 pessoa) {
 		return manager.salvarPessoa(pessoa);
 	}
 	
 	@PutMapping("pessoa")
-	public String editPessoa(@Valid Pessoa pessoa) {
+	public String editPessoaV2(@Valid PessoaV2 pessoa) {
 		return manager.atualizarPessoa(pessoa);
 	}
 	
 	@DeleteMapping("pessoa/{id}")
-	public String deletePessoa(@PathVariable(value = "id") Long id) {
+	public String deletePessoaV2(@PathVariable(value = "id") Long id) {
 		return manager.deletarPessoa(id);
 	}
 }

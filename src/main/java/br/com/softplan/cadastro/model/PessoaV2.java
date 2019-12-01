@@ -1,27 +1,30 @@
 package br.com.softplan.cadastro.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
-import java.io.Serializable;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 
 @Entity
-public class Pessoa implements Serializable {
-
+public class PessoaV2 implements Serializable  {
+	
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -7618562159887935885L;
+	private static final long serialVersionUID = 1811210380398717715L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,6 +57,21 @@ public class Pessoa implements Serializable {
 	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_atualizacao", columnDefinition = "DATE")
 	private LocalDate dataAtualizacao;
+	
+	
+	@Column(nullable = false, unique = true)
+	String endereco;
+
+	
+	
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 
 	public Long getId() {
 		return id;
@@ -135,4 +153,10 @@ public class Pessoa implements Serializable {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
+	
 }

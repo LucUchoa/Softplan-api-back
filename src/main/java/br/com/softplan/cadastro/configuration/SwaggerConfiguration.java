@@ -3,7 +3,6 @@ package br.com.softplan.cadastro.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
@@ -41,7 +40,7 @@ public class SwaggerConfiguration extends WebMvcConfigurationSupport {
 				.licenseUrl("https://www.softplan.com.br")
 				.build();
 	}
-
+	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addRedirectViewController("/v2/api-docs", "/v2/api-docs");
@@ -59,8 +58,5 @@ public class SwaggerConfiguration extends WebMvcConfigurationSupport {
 		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 	}
 
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		registry.addMapping("/**");
-	}
+
 }
