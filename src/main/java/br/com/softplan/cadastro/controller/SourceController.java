@@ -11,11 +11,11 @@ public class SourceController {
 
 	@GetMapping("back")
 	public String getBack() {
-		return "Codigo fonte do Back end no gitlab url:";
+		return "Codigo fonte do Back end no github url: https://github.com/LucUchoa/Softplan-api-back";
 	}
 	
 	@GetMapping("front")
 	public String getFront() {
-		return "Codigo fonte do front end no gitlab url:";
+		return "Codigo fonte do front end no github url:";
 	}
 }

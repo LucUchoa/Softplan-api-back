@@ -27,7 +27,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.anyRequest()
 		.authenticated()
 		.and()
-		.formLogin();
+		.formLogin()
+		.defaultSuccessUrl("/swagger-ui.html", true);
 	}
 	
 
