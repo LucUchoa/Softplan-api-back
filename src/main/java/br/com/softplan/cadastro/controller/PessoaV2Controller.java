@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.softplan.cadastro.manager.PessoaV2Manager;
 import br.com.softplan.cadastro.model.PessoaV2;
 
+//Controller criado para a Segunda versão da API
 @RestController
 @RequestMapping("v2/api-cadastro/")
 public class PessoaV2Controller {
