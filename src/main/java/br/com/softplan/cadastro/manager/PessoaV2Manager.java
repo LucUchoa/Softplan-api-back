@@ -9,6 +9,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.softplan.cadastro.clients.CepClient;
+import br.com.softplan.cadastro.dto.EnderecoDTO;
 import br.com.softplan.cadastro.model.PessoaV2;
 
 import br.com.softplan.cadastro.repository.PessoaV2Repository;
@@ -19,6 +21,9 @@ public class PessoaV2Manager {
 
 	@Autowired
 	private PessoaV2Repository repository;
+	
+	@Autowired
+	private CepClient client;
 
 	public List<PessoaV2> buscarTodasPessoas() {
 		return repository.findAll();
@@ -43,5 +48,9 @@ public class PessoaV2Manager {
 
 	public Optional<PessoaV2> buscarPessoa(long id) {
 		return repository.findById(id);
+	}
+
+	public EnderecoDTO buscarEndereco(int cep) {
+		return client.getEndereco(cep);
 	}
 }
