@@ -3,21 +3,21 @@ package br.com.softplan.cadastro.dto;
 public class EnderecoDTO {
 
 	private String cep;
-	
+
 	private String logradouro;
-	
+
 	private String complemento;
-	
+
 	private String bairro;
-	
+
 	private String localidade;
-	
+
 	private String uf;
-	
+
 	private String unidade;
-	
+
 	private String ibge;
-	
+
 	private String gia;
 
 	public String getCep() {
@@ -91,6 +91,5 @@ public class EnderecoDTO {
 	public void setGia(String gia) {
 		this.gia = gia;
 	}
-	
-	
+
 }

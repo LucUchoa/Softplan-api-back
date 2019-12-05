@@ -14,7 +14,6 @@ import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
-
 @Entity
 public class Pessoa implements Serializable {
 
@@ -35,15 +34,14 @@ public class Pessoa implements Serializable {
 	@Email
 	private String email;
 
-	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_nascimento", nullable = false, columnDefinition = "DATE")
-	private LocalDate dataNascimento;
+	private LocalDate nascimento;
 
 	private String naturalidade;
 
 	private String nacionalidade;
 
-	@CPF(message = "cpf inválido")
+	@CPF(message = "cpf invalido")
 	@Column(nullable = false, unique = true)
 	private String cpf;
 
@@ -87,12 +85,12 @@ public class Pessoa implements Serializable {
 		this.email = email;
 	}
 
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
+	public LocalDate getNascimento() {
+		return nascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
 	}
 
 	public String getNaturalidade() {

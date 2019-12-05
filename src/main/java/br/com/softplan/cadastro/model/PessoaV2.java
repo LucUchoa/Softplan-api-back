@@ -18,9 +18,8 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 //Entidade para a segunda versão
 @Entity
-public class PessoaV2 implements Serializable  {
-	
-	
+public class PessoaV2 implements Serializable {
+
 	/**
 	 * 
 	 */
@@ -38,9 +37,8 @@ public class PessoaV2 implements Serializable  {
 	@Email
 	private String email;
 
-	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_nascimento", nullable = false, columnDefinition = "DATE")
-	private LocalDate dataNascimento;
+	private LocalDate nascimento;
 
 	private String naturalidade;
 
@@ -50,28 +48,26 @@ public class PessoaV2 implements Serializable  {
 	@Column(nullable = false, unique = true)
 	private String cpf;
 
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	@Column(name = "data_cadastro", nullable = false, columnDefinition = "DATE")
 	private LocalDate dataCadastro;
 
-	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_atualizacao", columnDefinition = "DATE")
 	private LocalDate dataAtualizacao;
-	
-	
+
 	@Column(nullable = false, unique = true)
-	String endereco;
+	private String cep;
 
-	
-	
+	@Column(nullable = false, unique = true)
+	private String uf;
 
-	public String getEndereco() {
-		return endereco;
-	}
+	@Column(nullable = false, unique = true)
+	private String logradouro;
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+	@Column(nullable = false, unique = true)
+	private String cidade;
+
+	@Column(nullable = false, unique = true)
+	private String numero;
 
 	public Long getId() {
 		return id;
@@ -105,12 +101,12 @@ public class PessoaV2 implements Serializable  {
 		this.email = email;
 	}
 
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
+	public LocalDate getNascimento() {
+		return nascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
 	}
 
 	public String getNaturalidade() {
@@ -153,10 +149,48 @@ public class PessoaV2 implements Serializable  {
 		this.dataAtualizacao = dataAtualizacao;
 	}
 
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public String getUf() {
+		return uf;
+	}
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+	public String getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-	
+
 }

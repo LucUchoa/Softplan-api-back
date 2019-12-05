@@ -33,7 +33,7 @@ public class PessoaManager {
 		repository.deleteById(id);
 		return "Pessoa deletada com sucesso";
 	}
-	
+
 	public String atualizarPessoa(Pessoa pessoa) {
 		pessoa.setDataAtualizacao(LocalDate.now());
 		repository.save(pessoa);

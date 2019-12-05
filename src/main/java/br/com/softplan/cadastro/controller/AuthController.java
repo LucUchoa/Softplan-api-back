@@ -13,13 +13,11 @@ import br.com.softplan.cadastro.model.Auth;
 @RequestMapping("auth/")
 public class AuthController {
 
-	
 	@GetMapping("front")
 	public String getAuth(Auth auth) {
-		if(auth.getUsername().equals("softplan") && auth.getSenha().equals("softplan")) {
+		if (auth.getUsername().equals("softplan") && auth.getSenha().equals("softplan")) {
 			return "Sucesso";
-		}
-		else {
+		} else {
 			return "Erro";
 		}
 	}

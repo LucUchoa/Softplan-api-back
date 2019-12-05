@@ -23,7 +23,7 @@ public class PessoaController {
 
 	@Autowired
 	private PessoaManager manager;
-	
+
 	@GetMapping("pessoa/{id}")
 	public Optional<Pessoa> getPessoa(@PathVariable(value = "id") Long id) {
 		return manager.buscarPessoa(id);
@@ -38,12 +38,12 @@ public class PessoaController {
 	public String setPessoa(@Valid Pessoa pessoa) {
 		return manager.salvarPessoa(pessoa);
 	}
-	
+
 	@PutMapping("pessoa")
 	public String editPessoa(@Valid Pessoa pessoa) {
 		return manager.atualizarPessoa(pessoa);
 	}
-	
+
 	@DeleteMapping("pessoa/{id}")
 	public String deletePessoa(@PathVariable(value = "id") Long id) {
 		return manager.deletarPessoa(id);

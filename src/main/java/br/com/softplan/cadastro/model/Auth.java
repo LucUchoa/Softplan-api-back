@@ -2,9 +2,8 @@ package br.com.softplan.cadastro.model;
 
 public class Auth {
 
-	
 	private String username;
-	
+
 	private String senha;
 
 	public String getUsername() {
@@ -22,6 +21,5 @@ public class Auth {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
+
 }

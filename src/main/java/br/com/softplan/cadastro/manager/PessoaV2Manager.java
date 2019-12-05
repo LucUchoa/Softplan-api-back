@@ -21,7 +21,7 @@ public class PessoaV2Manager {
 
 	@Autowired
 	private PessoaV2Repository repository;
-	
+
 	@Autowired
 	private CepClient client;
 
