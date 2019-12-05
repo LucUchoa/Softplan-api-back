@@ -16,6 +16,6 @@ public class SourceController {
 
 	@GetMapping("front")
 	public String getFront() {
-		return "Codigo fonte do front end no github url:";
+		return "Codigo fonte do front end no github url: https://github.com/LucUchoa/Softplan-front";
 	}
 }
