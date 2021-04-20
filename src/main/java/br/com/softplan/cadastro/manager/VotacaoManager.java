@@ -36,18 +36,18 @@ public class VotacaoManager {
 
 	public String votar(VotacaoDTO voto) {
 		Votacao votacao = new Votacao();
-		Optional<Pessoa> pessoa = pessoaRepository.findById(voto.getIdUsuario());
+		Pessoa pessoa = pessoaRepository.findById(voto.getIdUsuario()).orElse(null);
 		CpfDTO resultCpf = new CpfDTO();
-		Optional<Pauta> pauta = pautaRepository.findById(voto.getIdPauta());
+		Pauta pauta = pautaRepository.findById(voto.getIdPauta()).orElse(null);
 
 		DtoParaModel(voto, votacao);
 
-		if (!pessoa.isEmpty()) {
-			resultCpf = client.getCpf(pessoa.get().getCpf());
+		if (pessoa != null) {
+			resultCpf = client.getCpf(pessoa.getCpf());
 			if (resultCpf.getStatus().equals("ABLE_TO_VOTE")) {
 
-				if (!pauta.isEmpty()) {
-					if (votacao.getDataVoto().isBefore(pauta.get().getDataFim())) {
+				if (pauta != null) {
+					if (votacao.getDataVoto().isBefore(pauta.getDataFim())) {
 						if (votacaoRepository.FindVoto(votacao.getIdUsuario(), votacao.getIdPauta()) != null) {
 							return "Ja votou";
 						} else {
