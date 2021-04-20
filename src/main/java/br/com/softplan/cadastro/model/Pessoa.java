@@ -35,6 +35,7 @@ public class Pessoa implements Serializable {
 	@Email
 	private String email;
 
+	@DateTimeFormat(iso = ISO.DATE)
 	@Column(name = "data_nascimento", columnDefinition = "DATE")
 	private LocalDate nascimento;
 
