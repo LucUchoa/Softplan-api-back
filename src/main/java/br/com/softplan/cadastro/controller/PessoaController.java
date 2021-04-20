@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.softplan.cadastro.dto.CadastroDTO;
 import br.com.softplan.cadastro.manager.PessoaManager;
 import br.com.softplan.cadastro.model.Pessoa;
 
@@ -35,8 +36,8 @@ public class PessoaController {
 	}
 
 	@PostMapping("pessoa")
-	public String setPessoa(@Valid Pessoa pessoa) {
-		return manager.salvarPessoa(pessoa);
+	public String setPessoa(@Valid CadastroDTO cadastro) {
+		return manager.salvarPessoa(cadastro);
 	}
 
 	@PutMapping("pessoa")

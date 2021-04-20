@@ -30,16 +30,14 @@ public class Pessoa implements Serializable {
 	private String nome;
 
 	private String sexo;
+	
 
 	@Email
 	private String email;
 
-	@Column(name = "data_nascimento", nullable = false, columnDefinition = "DATE")
+	@Column(name = "data_nascimento", columnDefinition = "DATE")
 	private LocalDate nascimento;
 
-	private String naturalidade;
-
-	private String nacionalidade;
 
 	@CPF(message = "cpf invalido")
 	@Column(nullable = false, unique = true)
@@ -93,21 +91,6 @@ public class Pessoa implements Serializable {
 		this.nascimento = nascimento;
 	}
 
-	public String getNaturalidade() {
-		return naturalidade;
-	}
-
-	public void setNaturalidade(String naturalidade) {
-		this.naturalidade = naturalidade;
-	}
-
-	public String getNacionalidade() {
-		return nacionalidade;
-	}
-
-	public void setNacionalidade(String nacionalidade) {
-		this.nacionalidade = nacionalidade;
-	}
 
 	public String getCpf() {
 		return cpf;

@@ -9,6 +9,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.com.softplan.cadastro.clients.CepClient;
+import br.com.softplan.cadastro.clients.CpfClient;
+import br.com.softplan.cadastro.dto.CadastroDTO;
+import br.com.softplan.cadastro.dto.CpfDTO;
 import br.com.softplan.cadastro.model.Pessoa;
 import br.com.softplan.cadastro.repository.PessoaRepository;
 
@@ -18,15 +22,17 @@ public class PessoaManager {
 
 	@Autowired
 	private PessoaRepository repository;
+	
 
 	public List<Pessoa> buscarTodasPessoas() {
 		return repository.findAll();
 	}
 
-	public String salvarPessoa(Pessoa pessoa) {
-		pessoa.setDataCadastro(LocalDate.now());
+	public String salvarPessoa(CadastroDTO cadastro) {
+		Pessoa pessoa = new Pessoa();
+		DtoParaModel(cadastro, pessoa);
 		repository.save(pessoa);
-		return "Sucesso";
+		return ("Cadastro Realizado com Sucesso Seu Id: " + repository.FindByCpf(pessoa.getCpf()).getId());
 	}
 
 	public String deletarPessoa(Long id) {
@@ -42,6 +48,14 @@ public class PessoaManager {
 
 	public Optional<Pessoa> buscarPessoa(long id) {
 		return repository.findById(id);
+	}
+	
+	public void DtoParaModel(CadastroDTO cadastro,Pessoa pessoa) {
+		pessoa.setDataCadastro(LocalDate.now());
+		pessoa.setCpf(cadastro.getCpf());
+		pessoa.setEmail(cadastro.getEmail());
+		pessoa.setNome(cadastro.getNome());
+		pessoa.setSexo(cadastro.getSexo());
 	}
 
 }
