@@ -23,7 +23,7 @@ public class PautaController {
 	private PautaManager manager;
 	
 	@GetMapping("{id}")
-	public Optional<Pauta> getPauta(@PathVariable(value = "id") Long id) {
+	public Pauta getPauta(@PathVariable(value = "id") Long id) {
 		return manager.getPautaById(id);
 	}
 	
@@ -33,7 +33,7 @@ public class PautaController {
 	}	
 	
 	@PostMapping("pauta")
-	public String setPessoa(@Valid PautaDTO pauta) {
+	public String setPauta(@Valid PautaDTO pauta) {
 		return manager.salvarPauta(pauta);
 	}
 	

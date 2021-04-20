@@ -24,7 +24,7 @@ public class PautaManager {
 		Pauta pauta = new Pauta();
 		DtoParaModel(pautadto, pauta);
 		repository.save(pauta);
-		return ("Cadastro da pauta realizado com Sucesso Seu Id: " + repository.findFirstByOrderByIdDesc().getId());
+		return ("Cadastro da pauta realizado com Sucesso Seu Id: ");
 	}
 	public String IniciarPauta(long id) {
 		Optional<Pauta> pauta;
@@ -41,8 +41,8 @@ public class PautaManager {
 		return "Votacao da Pauta Iniciada!"; 
 	}
 	
-	public Optional<Pauta> getPautaById(long id) {
-		return repository.findById(id);
+	public Pauta getPautaById(long id) {
+		return repository.FindPautaById(id);
 	}
 	
 	public void DtoParaModel(PautaDTO pautadto,Pauta pauta) {
