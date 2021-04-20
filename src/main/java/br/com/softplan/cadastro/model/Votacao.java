@@ -10,8 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 public class Votacao implements Serializable {
 	
@@ -32,8 +30,7 @@ public class Votacao implements Serializable {
 	@Column(nullable = false)
 	private String voto;
 	
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-	@Column(name = "data_voto", nullable = false, columnDefinition = "DATETIME")
+	@Column(name = "data_voto", nullable = false)
 	private LocalDateTime dataVoto;
 
 	public Long getId() {
