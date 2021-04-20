@@ -8,12 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "pauta")
 public class Pauta implements Serializable {
 	
 	
@@ -30,16 +28,14 @@ public class Pauta implements Serializable {
 	@Column(nullable = false)
 	private String descricao;
 	
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-	@Column(name = "data_cadastro", nullable = false, columnDefinition = "DATETIME")
+	@Column(name = "data_cadastro", nullable = false)
 	private LocalDateTime dataCadastro;
 	
 	private int tempoPauta;
 	
 	private int votosNecessarios;
 	
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-	@Column(name = "data_fim", columnDefinition = "DATETIME")
+	@Column(name = "data_fim")
 	private LocalDateTime dataFim;
 	
 	@Column(nullable = false)

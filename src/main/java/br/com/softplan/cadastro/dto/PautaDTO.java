@@ -1,7 +1,5 @@
 package br.com.softplan.cadastro.dto;
 
-import java.time.LocalDateTime;
-
 public class PautaDTO {
 	
 	private String descricao;
