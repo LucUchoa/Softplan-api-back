@@ -10,9 +10,9 @@ import br.com.softplan.cadastro.model.Votacao;
 @Repository
 public interface VotacaoRepository extends JpaRepository<Votacao, Long> {
 	//pegar voto pelo id usuario e pauta
-	@Query(value = "SELECT v FROM Votacao v WHERE v.idUsuario = :idUsuario and v.idPauta = :idPauta")
+	@Query(value = "SELECT v FROM Votacao v WHERE v.idUsuario = :idUsuario and v.idPauta = :idPauta", nativeQuery = true)
 	Votacao FindVoto(@Param("idUsuario") Long usuario,@Param("idPauta") Long pauta );
 	//Pegar quantidade de votos
-	@Query(value = "SELECT count(v) FROM Votacao v WHERE v.voto = :voto and v.idPauta = :idPauta")
+	@Query(value = "SELECT count(v) FROM Votacao v WHERE v.voto = :voto and v.idPauta = :idPauta", nativeQuery = true)
 	Long QuantidadeVotos(@Param("idPauta") Long idPauta, @Param("voto") String voto);
 }
